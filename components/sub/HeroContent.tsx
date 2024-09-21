@@ -14,7 +14,7 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center md:px-20 lg:px-20 px-5 mt-[40px] w-full z-[20]"
+      className="flex flex-row items-center justify-center md:px-20 lg:px-20 px-10 mt-[40px] w-[100%] z-[20]"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
@@ -33,8 +33,8 @@ const HeroContent = () => {
         >
           <span>
             Hello there 👋<br/>
-            I am
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500">
+            <span className="md:text-3xl lg:text-3xl text-xl">I am</span>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-cyan-500 md:text-3xl lg:text-3xl text-xl">
               {" "}
               Akash Singh{" "}
             </span>
