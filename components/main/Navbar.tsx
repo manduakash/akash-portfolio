@@ -11,11 +11,11 @@ const Navbar = () => {
           className="h-auto w-auto flex flex-row items-center"
         >
           <Image
-            src="/NavLogo.png"
+            src="/myimg.jpeg"
             alt="logo"
-            width={70}
-            height={70}
-            className="cursor-pointer hover:animate-slowspin"
+            width={40}
+            height={40}
+            className="cursor-pointer hover:animate-slowspin rounded-full ring-1 ring-cyan-400 p-1"
           />
 
           <span className="font-bold ml-[10px] hidden md:block text-gray-300">
@@ -39,6 +39,13 @@ const Navbar = () => {
 
         <div className="flex flex-row gap-5">
           {Socials.map((social) => (
+            <a
+            key={social.name}
+            href={social.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="cursor-pointer hover:animate-pulse"
+            >
             <Image
               src={social.src}
               alt={social.name}
@@ -46,6 +53,7 @@ const Navbar = () => {
               width={24}
               height={24}
             />
+            </a>
           ))}
         </div>
       </div>

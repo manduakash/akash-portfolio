@@ -150,16 +150,19 @@ export const first_layer_skill = [
   
   export const Socials = [
     {
-      name: "Discord",
+      name: "Instagram",
       src: "/instagram.svg",
+      link: "https://www.instagram.com/_akash_._singh_?igsh=MW13cWN0ZTV5ZnF4eQ=="
     },
     {
       name: "Facebook",
       src: "/facebook.svg",
+      link: "https://www.facebook.com/profile.php?id=100006570525200&mibextid=ZbWKwL"
     },
     {
-      name: "Instagram",
-      src: "/discord.svg",
+      name: "LinkedIn",
+      src: "/linkedIn.png",
+      link: "https://www.linkedin.com/in/akash-singh-3349b1184?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
     },
   ];
   
