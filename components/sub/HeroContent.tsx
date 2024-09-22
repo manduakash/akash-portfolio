@@ -14,7 +14,7 @@ const HeroContent = () => {
     <motion.div
       initial="hidden"
       animate="visible"
-      className="flex flex-row items-center justify-center md:px-20 lg:px-20 px-10 mt-[40px] w-[100%] z-[20]"
+      className="flex flex-row items-center justify-center md:px-20 lg:px-20 px-20 mt-[40px] w-[100%] z-[20]"
     >
       <div className="h-full w-full flex flex-col gap-5 justify-center m-auto text-start">
         <motion.div
