@@ -24,7 +24,7 @@ const AboutText = ({setHovered} : Props) => {
         </motion.div>
           <motion.div
           variants={slideInFromLeft(0.5)}
-          className='md:text-[2rem] lg:text-[2rem] text-[1.5rem] text-white font-medium mt-[10px] md:text-justify lg:text-justify mb-[15px] px-[10%] dm-italic z-[20]'
+          className='md:text-[2rem] lg:text-[2rem] text-[1.3rem] text-white font-medium mt-[10px] md:text-justify lg:text-justify mb-[15px] md:px-[10%] lg:px-[10%] px-[2%] dm-italic z-[20]'
           onMouseOver={()=>{setHovered(true)}}
           onMouseLeave={()=>{setHovered(false)}}
           >
