@@ -3,24 +3,52 @@ import {
   second_layer_skill,
   third_layer_skill,
 } from "@/constants";
-import React, { Dispatch, SetStateAction } from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import SkillDataProvider from "../sub/SkillDataProvider";
 import SkillText from "../sub/SkillText";
 
-interface Props{
-  setSkillHovered : Dispatch<SetStateAction<SkillHovered>>;
+interface Skill {
+  _id: string;
+  skill_name: string;
+  image: string;
+  width: number;
+  height: number;
+  level: string;
+  layer: string;
 }
-class SkillHovered{
+
+interface Props {
+  setSkillHovered: Dispatch<SetStateAction<SkillHovered>>;
+}
+class SkillHovered {
   isHoverd: boolean;
   name: string;
   level: string;
-  constructor(isHoverd: boolean,name: string,level:string){
-      this.isHoverd = isHoverd;
-      this.name = name;
-      this.level = level;
+  constructor(isHoverd: boolean, name: string, level: string) {
+    this.isHoverd = isHoverd;
+    this.name = name;
+    this.level = level;
   }
 }
-const Skills = ({setSkillHovered} : Props) => {
+const Skills = ({ setSkillHovered }: Props) => {
+  const [skills, setSkills] = useState<Skill[]>([]);
+  useEffect(() => {
+    // Fetching skills data from the API using fetch
+    const fetchSkills = async () => {
+      try {
+        const response = await fetch(
+          "https://portfolio-server-neon-rho.vercel.app/api/skill/get-all-skills"
+        );
+        const data = await response.json(); // Parse the JSON data from response
+        setSkills(data.data); // Set the skills data in state
+        console.log(data);
+      } catch (error) {
+        console.error("Error fetching skills data:", error);
+      }
+    };
+
+    fetchSkills();
+  }, []);
   return (
     <section
       id="skills"
@@ -30,47 +58,53 @@ const Skills = ({setSkillHovered} : Props) => {
       <SkillText />
 
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center z-[20]">
-        {first_layer_skill.map((image, index) => (
-          <SkillDataProvider
-            setSkillHovered={setSkillHovered}
-            key={index}
-            src={image.Image}
-            name={image.skill_name}
-            level={image.level}
-            width={image.width}
-            height={image.height}
-            index={index}
-          />
-        ))}
+        {skills
+          .filter((skill) => skill.layer === "first_layer_skill")
+          .map((image, index) => (
+            <SkillDataProvider
+              setSkillHovered={setSkillHovered}
+              key={index}
+              src={image.image}
+              name={image.skill_name}
+              level={image.level}
+              width={image.width}
+              height={image.height}
+              index={index}
+            />
+          ))}
       </div>
 
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center z-[20]">
-        {second_layer_skill.map((image, index) => (
-          <SkillDataProvider
-            setSkillHovered={setSkillHovered}
-            key={index}
-            name={image.skill_name}
-            level={image.level}
-            src={image.Image}
-            width={image.width}
-            height={image.height}
-            index={index}
-          />
-        ))}
+      {skills
+          .filter((skill) => skill.layer === "second_layer_skill")
+          .map((image, index) => (
+            <SkillDataProvider
+              setSkillHovered={setSkillHovered}
+              key={index}
+              src={image.image}
+              name={image.skill_name}
+              level={image.level}
+              width={image.width}
+              height={image.height}
+              index={index}
+            />
+          ))}
       </div>
       <div className="flex flex-row justify-around flex-wrap mt-4 gap-5 items-center z-[20]">
-        {third_layer_skill.map((image, index) => (
-          <SkillDataProvider
-            setSkillHovered={setSkillHovered}
-            key={index}
-            name={image.skill_name}
-            level={image.level}
-            src={image.Image}
-            width={image.width}
-            height={image.height}
-            index={index}
-          />
-        ))}
+      {skills
+          .filter((skill) => skill.layer === "third_layer_skill")
+          .map((image, index) => (
+            <SkillDataProvider
+              setSkillHovered={setSkillHovered}
+              key={index}
+              src={image.image}
+              name={image.skill_name}
+              level={image.level}
+              width={image.width}
+              height={image.height}
+              index={index}
+            />
+          ))}
       </div>
 
       <div className="w-full h-full absolute">

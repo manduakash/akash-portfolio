@@ -25,6 +25,7 @@ const ProjectCard = ({ src, title, subtitle, description, projectLink, technolog
         width={1000}
         height={1000}
         className="w-full object-contain"
+        unoptimized
       />
 
       <div className="relative p-4">
